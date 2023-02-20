@@ -1,16 +1,12 @@
-FROM ubuntu:latest
+FROM python:3.9
 
 EXPOSE 5000
 
-RUN apt update && apt upgrade -y
+COPY ./app/requirements.txt /app/requirements.txt
 
-RUN apt install -y -q build-essential python3-pip python3-dev
-RUN pip3 install -U pip setuptools wheel
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-COPY app/requirements.txt /app/requirements.txt
-RUN pip3 install -r /app/requirements.txt
-
-COPY app/ /app
+COPY ./app/ /app
 
 WORKDIR /app
 
