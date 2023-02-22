@@ -14,13 +14,13 @@ pipeline {
         stage('Stop old container') {
             steps {
                 echo "Stopping old container..."
-                sh 'docker stop fastapi_template'
+                sh 'docker stop fastapi_template || true'
             }
         }
         stage('Remove old container') {
             steps {
                 echo "Removing old docker container..."
-                sh 'docker rm fastapi_template'
+                sh 'docker rm fastapi_template || true'
             }
         }
         stage('Run new container') {
