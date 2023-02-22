@@ -14,7 +14,7 @@ pipeline {
         stage('Run image') {
             steps {
                 echo "Running docker container..."
-                sh 'docker run  --workdir=/app -p 5000:5000 -d fastapi-template:latest'
+                sh 'docker run  --workdir=/app -p 5000:5000 -d fastapi_template:latest'
             }
         }
     }
